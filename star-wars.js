@@ -35,7 +35,9 @@ button.addEventListener("click", function (e) {
   fetch(`https://swapi.dev/api/${requestData.resource}/${requestData.number}`)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(response.status);
+        throw new Error("Такого элемента нет в базе данных");
+      } else if (!requestData.number) {
+        throw new Error("Вы не ввели номер элемента");
       }
       return response.json();
     })
@@ -52,7 +54,7 @@ button.addEventListener("click", function (e) {
       hideLoading();
       const errorMessage = document.createElement("p");
       errorMessage.className = "error-message";
-      errorMessage.innerHTML = `<p class="error-message-text">Извините, мы ничего не нашли! Код ошибки: ${error.message}.</p><p class="error-message-text">Попробуйте ещё раз!</p>`;
+      errorMessage.innerHTML = `<p>Извините, мы ничего не нашли! ${error.message}.</p><p>Попробуйте ещё раз!</p>`;
       errorDiv.appendChild(errorMessage);
     });
 });

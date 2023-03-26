@@ -1,16 +1,75 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Unbounded", cursive;
+  background-color: black;
+}
+
+.heading {
+  text-align: center;
+  font-size: 40px;
+  color: #ffe81f;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.input,
+.button {
+  font-family: "Unbounded", cursive;
+  font-size: 20px;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 12px;
+}
+
+.input {
+  background-color: rgb(218, 218, 218);
+}
+
+.button {
+  background-color: rgb(177, 177, 177);
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #747048;
+  transition: 0.3s;
+}
+
+.found-item,
+.error-message {
+  text-align: center;
+  font-size: 30px;
+}
+
+.found-item {
+  color: white;
+}
+
+.error-message {
+  color: #ed2939;
+}
+
 #loading {
   width: 2rem;
   height: 2rem;
   border: 5px solid #f3f3f3;
-  border-top: 6px solid #9c41f2;
+  border-top: 6px solid #ffe81f;
   border-radius: 100%;
-  margin: auto;
+  margin: 40px auto;
   display: none;
   animation: spin 1s infinite linear;
 }
+
 #loading.display {
   display: block;
 }
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
